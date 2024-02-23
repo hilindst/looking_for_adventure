@@ -3,58 +3,49 @@ class AdventuresController < ApplicationController
 
   # GET /adventures or /adventures.json
   def index
-    @adventures = Adventure.all
+    adventures = Adventure.all
+    
+    render json: adventures
   end
 
   # GET /adventures/1 or /adventures/1.json
   def show
+    adventure = Adventure.find(params[:id])
+    render json: adventure
   end
 
   # GET /adventures/new
-  def new
-    @adventure = Adventure.new
-  end
+  # def new
+  #   @adventure = Adventure.new
+  # end
 
-  # GET /adventures/1/edit
-  def edit
-  end
+  # # GET /adventures/1/edit
+  # def edit
+  # end
 
   # POST /adventures or /adventures.json
   def create
-    @adventure = Adventure.new(adventure_params)
+    adventure = Adventure.new(adventure_params)
 
-    respond_to do |format|
-      if @adventure.save
-        format.html { redirect_to adventure_url(@adventure), notice: "Adventure was successfully created." }
-        format.json { render :show, status: :created, location: @adventure }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @adventure.errors, status: :unprocessable_entity }
-      end
+    if adventure.save
+      render json: adventure, status: :created
+    else render json: adventure.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /adventures/1 or /adventures/1.json
   def update
-    respond_to do |format|
-      if @adventure.update(adventure_params)
-        format.html { redirect_to adventure_url(@adventure), notice: "Adventure was successfully updated." }
-        format.json { render :show, status: :ok, location: @adventure }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @adventure.errors, status: :unprocessable_entity }
-      end
-    end
+    adventure = Adventure.find(params[:id])
+    adventure.update(adventure_params)
+
+    render json: adventure, status: :update
   end
 
   # DELETE /adventures/1 or /adventures/1.json
   def destroy
-    @adventure.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to adventures_url, notice: "Adventure was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    adventure = Adventure.find(params[:id])
+    adventure.destroy
+    render json: adventure, status: :destroy
   end
 
   private
