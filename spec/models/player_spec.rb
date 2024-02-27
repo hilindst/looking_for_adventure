@@ -18,5 +18,15 @@ RSpec.describe Player, type: :model do
     player = Player.create(username: 'Drizzt', password: 'password', email: 'nil')
     expect(player).not_to be_valid
   end
+
+  it 'hashes the password using BCrypt' do
+    user = create(:player, password: 'password')
+
+    expect(player.password_digest).not_to eq 'password'
+
+    expect(BCrypt::Password.new(player.password_digest)).to be_truthy
+
+    expect(BCrypt::Password.new(player.password_digest).is_password?('password')).to be true
+  end
 end
 end
