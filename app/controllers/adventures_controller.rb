@@ -1,5 +1,5 @@
 class AdventuresController < ApplicationController
-  before_action :set_adventure, only: %i[ show edit update destroy ]
+  # before_action :set_adventure, only: %i[ show edit update destroy ]
 
   # GET /adventures or /adventures.json
   def index

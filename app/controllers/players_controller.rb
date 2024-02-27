@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_action :set_player, only: %i[ show edit update destroy ]
+  # before_action :set_player, only: %i[ show edit update destroy ]
 
   # GET /players or /players.json
   def index
@@ -45,7 +45,6 @@ class PlayersController < ApplicationController
     player = Player. find(params[:id])
     player.destroy
     render json: player, status: :destroy
-    end
   end
 
   private

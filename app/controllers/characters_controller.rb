@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: %i[ show edit update destroy ]
+  # before_action :set_character, only: %i[ show edit update destroy ]
 
   # GET /characters or /characters.json
   def index
@@ -47,7 +47,6 @@ class CharactersController < ApplicationController
 
     render json: character
     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
