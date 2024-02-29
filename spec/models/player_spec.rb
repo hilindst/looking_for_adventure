@@ -10,17 +10,17 @@ RSpec.describe Player, type: :model do
   end
 
   it 'is not valid without a username' do
-    player = Player.create(username: 'nil', password: 'password', email: 'drizzt@puma.com')
+    player = Player.create(username: nil, password: 'password', email: 'drizzt@puma.com')
     expect(player).not_to be_valid
   end
 
   it 'is not valid without an email' do
-    player = Player.create(username: 'Drizzt', password: 'password', email: 'nil')
+    player = Player.create(username: 'Drizzt', password: 'password', email: nil)
     expect(player).not_to be_valid
   end
 
   it 'hashes the password using BCrypt' do
-    user = create(:player, password: 'password')
+    player = create(:player, password: 'password')
 
     expect(player.password_digest).not_to eq 'password'
 
