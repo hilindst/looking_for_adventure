@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
   # GET /players or /players.json
   def index
     players = Player.all
+    render json: PlayerBlueprint.render(player, view: :normal)
   end
 
   # GET /players/1 or /players/1.json
@@ -26,7 +27,7 @@ class PlayersController < ApplicationController
     player = Player.new(player_params)
 
     if player.save 
-        render json: player, status: :created
+        render json: PlayerBlueprint.render(player, view: :normal), status: :created
     else 
         render json: player.errors, status: :unprocessable_entity
     end

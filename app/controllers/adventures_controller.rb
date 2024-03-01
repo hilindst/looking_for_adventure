@@ -1,11 +1,11 @@
 class AdventuresController < ApplicationController
   # before_action :set_adventure, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_request
   # GET /adventures or /adventures.json
   def index
     adventures = Adventure.all
     
-    render json: adventures
+    render json: AdventureBlueprint.render(adventures, view: :normal)
   end
 
   # GET /adventures/1 or /adventures/1.json
@@ -28,7 +28,7 @@ class AdventuresController < ApplicationController
     adventure = Adventure.new(adventure_params)
 
     if adventure.save
-      render json: adventure, status: :created
+      render json: AdventureBlueprint.render(adventure, view: :normal), status: :created
     else render json: adventure.errors, status: :unprocessable_entity
     end
   end

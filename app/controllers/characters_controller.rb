@@ -1,10 +1,10 @@
 class CharactersController < ApplicationController
   # before_action :set_character, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_request
   # GET /characters or /characters.json
   def index
     characters = Character.all
-    render json: characters
+    render json: CharacterBlueprint.render(characters, view: :normal)
   end
 
   # GET /characters/1 or /characters/1.json
@@ -26,7 +26,7 @@ class CharactersController < ApplicationController
   def create
     character = Character.new(character_params)
     if character.save
-      render json: character, status: :created
+      render json: CharacterBlueprint.render(character, view: :normal), status: :created
     else render json: character.errors, status: :unprocessable_entity
     end
   end

@@ -81,6 +81,7 @@ GEM
     bcrypt (3.1.20)
     bigdecimal (3.1.6)
     bindex (0.8.1)
+    blueprinter (1.0.2)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -126,6 +127,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jwt (2.8.1)
+      base64
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -284,6 +287,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  blueprinter
   bootsnap
   capybara
   debug
@@ -291,6 +295,7 @@ DEPENDENCIES
   faker
   importmap-rails
   jbuilder
+  jwt
   puma (>= 5.0)
   rails (~> 7.1.3)
   rspec-rails
