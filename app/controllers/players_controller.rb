@@ -1,16 +1,16 @@
 class PlayersController < ApplicationController
-  # before_action :set_player, only: %i[ show edit update destroy ]
+  before_action :authenticate_request, except: [:create]
 
   # GET /players or /players.json
   def index
     players = Player.all
-    render json: PlayerBlueprint.render(player, view: :normal)
+    render json: PlayerBlueprint.render(players, view: :normal)
   end
 
   # GET /players/1 or /players/1.json
   def show
-    player = Player.find(params[:id])
-    render json: player
+    player = Player.find_by(id: params[:id])
+    render json: PlayerBlueprint.render(player, view: :normal), status: :ok
   end
 
   # # GET /players/new

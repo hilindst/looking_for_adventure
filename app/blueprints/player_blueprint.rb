@@ -7,6 +7,10 @@ class PlayerBlueprint < Blueprinter::Base
     fields :username, :email, :profile
   end
 
+  view :extended do
+      fields :username, :created_at, :updated_at
+  end
+
   view :characters do 
     association :characters, blueprint: CharacterBlueprint
   end

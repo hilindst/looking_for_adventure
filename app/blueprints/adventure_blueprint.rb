@@ -10,6 +10,6 @@ class AdventureBlueprint < Blueprinter::Base
     
     association :player, blueprint: PlayerBlueprint, view: :normal
   end
-end
+
 
 end
