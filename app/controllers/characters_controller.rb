@@ -24,7 +24,7 @@ class CharactersController < ApplicationController
 
   # POST /characters or /characters.json
   def create
-    character = Character.new(character_params)
+    character = @current_player.characters.new(character_params)
     if character.save
       render json: CharacterBlueprint.render(character, view: :normal), status: :created
     else render json: character.errors, status: :unprocessable_entity
