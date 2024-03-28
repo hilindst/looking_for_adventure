@@ -228,7 +228,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rack-cors
-  rails (~> 7.0.8)
+  rails
   rspec-rails
   sqlite3 (~> 1.4)
   tzinfo-data
