@@ -13,15 +13,6 @@ class CharactersController < ApplicationController
     render json: character
   end
 
-  # GET /characters/new
-  # def new
-  #   @character = Character.new
-  # end
-
-  # GET /characters/1/edit
-  # def edit
-  # end
-
   # POST /characters or /characters.json
   def create
     character = @current_player.characters.new(character_params)
