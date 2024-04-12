@@ -34,10 +34,11 @@ class CharactersController < ApplicationController
   # DELETE /characters/1 or /characters/1.json
   def destroy
     character = Character.find(params[:id])
-    character.destroy, status: :destroy
+    character.destroy
 
     render json: character
-    end
+    head :no_content
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
