@@ -25,7 +25,7 @@ class AdventuresController < ApplicationController
 
   # POST /adventures or /adventures.json
   def create
-    adventure = Adventure.new(adventure_params)
+    adventure = @current_player.adventures.new(adventure_params)
 
     if adventure.save
       render json: AdventureBlueprint.render(adventure, view: :normal), status: :created
@@ -56,6 +56,6 @@ class AdventuresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def adventure_params
-      params.require(:adventure).permit(:title, :ruleset, :description, :status, :adventure_type, :setting, :player_id, character_ids:[])
+      params.require(:adventure).permit(:title, :ruleset, :description, :status, :adventure_type, :setting)
     end
 end
