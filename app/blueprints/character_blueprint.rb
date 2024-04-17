@@ -4,7 +4,7 @@ class CharacterBlueprint < Blueprinter::Base
 
   identifier :id
 
-  fields :name, :race, :char_class, :alignment, :level, :background, :gender, :bio
+  fields :name, :race, :char_class, :alignment, :level, :background, :gender, :bio, :created_at
 
   view :normal do
     
