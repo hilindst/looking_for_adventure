@@ -38,6 +38,8 @@ gem 'blueprinter'
 
 group :production do 
   gem 'pg'
+  gem 'rails_12factor'
+  gem "spring"
 end
 
 group :development, :test do
@@ -48,7 +50,7 @@ group :development, :test do
   #gem 'faker'
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
-  gem "spring"
+  
 end
 
 group :development do
