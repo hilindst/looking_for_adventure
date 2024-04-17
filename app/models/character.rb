@@ -4,4 +4,5 @@ class Character < ApplicationRecord
   has_one_attached :image
 
   validates :name, :race, :char_class, :alignment, :level, presence: true
+
 end

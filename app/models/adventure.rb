@@ -4,4 +4,5 @@ class Adventure < ApplicationRecord
   has_one_attached :image
 
   validates :title, :ruleset, :description, :status, :adventure_type, :setting, presence: true
+
 end
