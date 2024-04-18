@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post 'upload_image', to: 'adventures#upload_image'
     end
 
-  resources :players,  only: [:create, :show]
+  resources :players,  only: [:create, :show] do
       post '/login', to: "sessions#create"
- 
+  end
 end
