@@ -38,14 +38,14 @@ class PlayersController < ApplicationController
     player = Player.find(params[:id])
     player.update(player_params)
 
-    render json: player, status: :update
+    render json: player, status: :ok
   end
 
   # DELETE /players/1 or /players/1.json
   def destroy
     player = Player. find(params[:id])
     player.destroy
-    render json: player, status: :destroy
+    render json: player, status: :ok
   end
 
   private
