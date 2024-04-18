@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     end
 
   resources :players,  only: [:create, :show]
-  post '/login', to: "sessions#create"
+      post '/login', to: "sessions#create"
  
 end
