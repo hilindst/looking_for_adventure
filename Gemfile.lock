@@ -213,7 +213,6 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
-    spring (4.2.0)
     sqlite3 (1.7.3-aarch64-linux)
     sqlite3 (1.7.3-arm-linux)
     sqlite3 (1.7.3-arm64-darwin)
@@ -252,7 +251,6 @@ DEPENDENCIES
   rails (= 7.1)
   rails_12factor
   rspec-rails
-  spring
   sqlite3 (~> 1.4)
   tzinfo-data
 

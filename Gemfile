@@ -39,7 +39,7 @@ gem 'blueprinter'
 group :production do 
   gem 'pg'
   gem 'rails_12factor'
-  gem "spring"
+# gem "spring"
 end
 
 group :development, :test do
