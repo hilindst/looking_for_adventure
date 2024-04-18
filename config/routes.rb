@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  resources :characters,  only: [:index, :show, :create, :update, :destroy] do
-      post 'upload_image', to: 'characters#upload_image'
-    end
+  post '/login', to: "sessions#create"
+  resources :characters,  only: [:index, :show, :create, :update, :destroy] 
 
-  resources :adventures,  only: [:index, :show, :create, :update, :destroy]  do
-      post 'upload_image', to: 'adventures#upload_image'
-    end
+  resources :adventures,  only: [:index, :show, :create, :update, :destroy] 
 
-  resources :players,  only: [:create, :show] do
-      post '/login', to: "sessions#create"
-  end
+  resources :players,  only: [:create, :show] 
+  
 end

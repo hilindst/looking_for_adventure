@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+
+  
   def create
     player = Player.find_by(username: params[:username])
     if player&.authenticate(params[:password])
